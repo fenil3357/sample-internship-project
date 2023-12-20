@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+// Library used for routing in web page
+import {Route, Routes} from 'react-router-dom'
+
+// Importing Components
+import Login from './components/login';
+import Departments from './components/departments';
+import Home from './components/home';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Routes>
+    {/* Setting up routes for different pages */}
+      <Route path='/login' element={<Login/>}/>
+      <Route path='/departments' element={<Departments/>}/>
+      <Route path='/home' element={<Home/>}/>
+      <Route path='*' element={<center><h2>Error 404 : Page Not Found!!!</h2></center>}/>
+    </Routes>
     </div>
   );
 }
